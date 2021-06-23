@@ -25,3 +25,14 @@ for index, num in enumerate(nums):
     return [index, nums_hash[comp]]
   else:
     nums_hash[num] = index
+
+
+class Solution:
+    def twoSum(self, nums: List[int], target: int) -> List[int]:
+        mp = {}
+        
+        for i in range(len(nums)):
+            n = target - nums[i]
+            if n in mp:
+                return(mp[n], i)
+            mp[nums[i]] = i  
