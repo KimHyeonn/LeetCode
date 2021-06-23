@@ -1,0 +1,27 @@
+# Brute Force:
+
+for i in range(len(nums)):
+  for j in range(i+1, len(nums)):
+    if nums[i] + nums[j] == target:
+      return [i, j]
+      
+# Two-pass Hash Table:
+
+nums_hash = {}
+for index, num in enumerate(nums):
+  nums_hash[num] = index
+
+for index, num in enumerate(nums):
+  comp = target - num
+  if comp in nums_hash.keys() and index != nums_hash[comp]:
+    return [index, nums_hash[comp]]
+
+# One-pass Hash Table:
+
+nums_hash = {}
+for index, num in enumerate(nums):
+  comp = target - num
+  if comp in nums_hash.keys() and index != nums_hash[comp]:
+    return [index, nums_hash[comp]]
+  else:
+    nums_hash[num] = index
