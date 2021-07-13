@@ -4,8 +4,8 @@ class Solution:
         
         a = 0
         
-        for k in range(0, i):
-            for v in range(0, j):
-                a += int(num1[::-1][k]) * int(num2[::-1][v]) * 10**(k) * 10**(v)
+        for k in range(1, i+1):
+            for v in range(1, j+1):
+                a += int(num1[-k]) * int(num2[-v]) * 10**(k-1) * 10**(v-1)
         
         return str(a)
